@@ -33,23 +33,23 @@ resource "vault_kv_secret_v2" "secret" {
 
 
 
-resource "google_sql_database_instance" "wordpress" {
-  name                = "wordpress"
-  database_version    = "MYSQL_5_7"
-  region              = "us-central1"
-  deletion_protection = false
+# resource "google_sql_database_instance" "wordpress" {
+#   name                = "wordpress"
+#   database_version    = "MYSQL_5_7"
+#   region              = "us-central1"
+#   deletion_protection = false
 
-  settings {
-    # Second-generation instance tiers are based on the machine
-    # type. See argument reference below.
-    tier = "db-f1-micro"
-  }
-}
+#   settings {
+#     # Second-generation instance tiers are based on the machine
+#     # type. See argument reference below.
+#     tier = "db-f1-micro"
+#   }
+# }
 
 
-resource "google_sql_user" "users" {
-  name     = "wordpress"
-  instance = google_sql_database_instance.wordpress.name
-  host     = "wordpress.${var.google_domain_name}"
-  password = random_password.password.result
-}
+# resource "google_sql_user" "users" {
+#   name     = "wordpress"
+#   instance = google_sql_database_instance.wordpress.name
+#   host     = "wordpress.${var.google_domain_name}"
+#   password = random_password.password.result
+# }
