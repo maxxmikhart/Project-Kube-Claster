@@ -9,3 +9,5 @@ BUCKET_NAME  = "terraform-project-farrukh901"
 
 # Add project name you created above
 PROJECT_ID = "lively-marking-371004" # Project ID
+
+
