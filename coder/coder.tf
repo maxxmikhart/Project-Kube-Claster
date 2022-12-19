@@ -25,12 +25,12 @@ EOF
 
 resource "kubernetes_secret" "example" {
   metadata {
-    name = "coder-db-url"
+    name      = "coder-db-url"
     namespace = "coder"
   }
 
   data = {
-    coder-db-url  = "postgres://coder:coder@postgresql.coder.svc.cluster.local:5432/coder?sslmode=disable"
+    coder-db-url = "postgres://coder:coder@postgresql.coder.svc.cluster.local:5432/coder?sslmode=disable"
   }
 
   type = "generic"

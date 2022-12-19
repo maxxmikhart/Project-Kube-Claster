@@ -25,5 +25,5 @@ variable "values_yaml" {
 variable "chart_version" {
   type        = string
   description = "Version information"
-  default = ""
+  default     = ""
 }
