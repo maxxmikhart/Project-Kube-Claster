@@ -7,7 +7,7 @@ module "external-dns-terraform-k8s-namespace" {
 resource "google_service_account" "external-dns" {
   account_id   = "pro-external-dns"
   display_name = "Used for external-dns"
-  project = var.PROJECT_ID
+  project      = var.PROJECT_ID
 }
 
 resource "google_service_account_key" "external-dns" {
@@ -18,9 +18,9 @@ resource "google_service_account_key" "external-dns" {
 
 resource "google_project_iam_binding" "externald-dns" {
   project = var.PROJECT_ID
-  role               = "roles/dns.admin"
+  role    = "roles/dns.admin"
   members = [
-   "serviceAccount:${google_service_account.external-dns.email}"
+    "serviceAccount:${google_service_account.external-dns.email}"
   ]
 }
 
