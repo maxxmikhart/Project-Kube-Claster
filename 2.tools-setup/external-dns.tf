@@ -3,6 +3,42 @@ module "external-dns-terraform-k8s-namespace" {
   name   = "external-dns"
 }
 
+
+resource "google_service_account" "external-dns" {
+  account_id   = "pro-external-dns"
+  display_name = "Used for external-dns"
+  project = var.PROJECT_ID
+}
+
+resource "google_service_account_key" "external-dns" {
+  service_account_id = google_service_account.external-dns.name
+  public_key_type    = "TYPE_X509_PEM_FILE"
+}
+
+
+resource "google_project_iam_binding" "externald-dns" {
+  project = var.PROJECT_ID
+  role               = "roles/dns.admin"
+  members = [
+   "serviceAccount:${google_service_account.external-dns.email}"
+  ]
+}
+
+
+
+resource "kubernetes_secret" "external_dns_secret" {
+  metadata {
+    name      = "external-dns"
+    namespace = module.external-dns-terraform-k8s-namespace.namespace
+  }
+  data = {
+    "credentials.json" = base64decode(google_service_account_key.external-dns.private_key)
+  }
+  type = "generic"
+}
+
+
+
 module "external-dns-terraform-helm" {
   depends_on = [
     kubernetes_secret.external_dns_secret
@@ -17,17 +53,8 @@ module "external-dns-terraform-helm" {
 provider: google
 google:
   project: "${var.PROJECT_ID}"
-  serviceAccountSecret: "google-service-account" 
+  serviceAccountSecret: external-dns 
+rbac:
+  create: true
 EOF
-}
-
-resource "kubernetes_secret" "external_dns_secret" {
-  metadata {
-    name      = "google-service-account"
-    namespace = "external-dns"
-  }
-  data = {
-    "credentials.json" = "${file("${var.google_credentials_json}")}"
-  }
-  type = "generic"
 }
