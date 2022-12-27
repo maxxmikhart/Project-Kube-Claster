@@ -2,20 +2,9 @@
 
 ---
 ### Usage: 
-
-1. Create a service account with a Basic Owner role on the project you created in previous step
-    - Please navigate to  https://console.cloud.google.com
-    - Search for IAM and Admin
-    - Create a Service Account call it "external-dns"
-    - Generate json key
-    - Download locally
----
-2. Create 3.tools-setup/service-account.json file 
-    - add the json file content
-
 ---
 
-3. Configure backend
+1. Configure backend
 ```
 source ../scripts/setenv.sh
 ```
