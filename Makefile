@@ -1,7 +1,6 @@
 fix-grafana-tls:
 		kubectl delete secret grafana-tls -n grafana && \
 		kubectl delete certificate grafana-tls -n grafana
-
 	
 fix-prometheus-tls:
 		# delete prometheus certs
