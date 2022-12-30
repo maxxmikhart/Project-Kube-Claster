@@ -16,6 +16,14 @@ datadog:
   logs:
     enabled: true
     containerCollectAll: true
+clusterAgent:
+  resources: 
+    requests:
+      cpu: "${var.datadog-config["requests_cpu"]}"
+      memory: "${var.datadog-config["requests_memory"]}"
+    limits:
+      cpu: "${var.datadog-config["limits_cpu"]}"
+      memory: "${var.datadog-config["limits_memory"]}"
 EOF
 }
 

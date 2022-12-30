@@ -93,6 +93,10 @@ variable "datadog-config" {
     deployment_name = "datadog"
     apiKey          = "486adc28b54026bb6a42480386407778"
     site            = "us5.datadoghq.com"
+    requests_cpu    = "200m"
+    requests_memory = "256Mi"
+    limits_cpu      = "500m"
+    limits_memory   = "1024Mi"
   }
 }
 
