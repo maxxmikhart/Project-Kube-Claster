@@ -12,3 +12,10 @@ resource "google_artifact_registry_repository" "my-artemis-repo" {
   description   = "used to store artemis images"
   format        = "DOCKER"
 }
+resource "google_artifact_registry_repository" "tools" {
+  provider      = google-beta
+  location      = var.gke_config["region"]
+  repository_id = "tools"
+  description   = "used to store artemis images"
+  format        = "DOCKER"
+}
