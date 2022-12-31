@@ -1,5 +1,10 @@
 # Instructions 
 ### You can add any tool in this docker image, and build the image. Just update Dockerfile
+
+### Configure Project ID 
+```
+source ../scripts/setenv.sh  
+```
 ### Build Image 
 ```
   docker build -t   tools:latest     . 
