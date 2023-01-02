@@ -7,6 +7,6 @@ resource "helm_release" "helm_deployment" {
   wait       = false
 
   values = [
-    "${var.values_yaml}"
+    var.values_yaml
   ]
 }

@@ -5,6 +5,6 @@ resource "helm_release" "helm_deployment" {
   chart     = var.deployment_path
   wait      = false
   values = [
-    "${var.values_yaml}"
+    var.values_yaml
   ]
 }
