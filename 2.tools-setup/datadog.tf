@@ -19,11 +19,11 @@ datadog:
 clusterAgent:
   resources: 
     requests:
-      cpu: "200m"
-      memory: "256Mi"
+      cpu: "${var.datadog-config["cpu_requests"]}"
+      memory: "${var.datadog-config["memory_requests"]}"
     limits:
-      cpu: "500m"
-      memory: "1024Mi"
+      cpu: "${var.datadog-config["cpu_limits"]}"
+      memory: "${var.datadog-config["memory_limits"]}"
 EOF
 }
 
