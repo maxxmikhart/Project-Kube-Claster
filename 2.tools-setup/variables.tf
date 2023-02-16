@@ -125,3 +125,14 @@ variable "ingress-controller-config" {
     loadBalancerSourceRanges = "0.0.0.0/0"
   }
 }
+
+# This block is used to setup ingress controller
+variable "sftpgo-config" {
+  type        = map(any)
+  description = "Please define prometheus configurations"
+  default = {
+    deployment_name          = "sftpgo"
+    chart_version   = "0.12.0"
+
+  }
+}
