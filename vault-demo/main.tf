@@ -22,7 +22,7 @@ resource "vault_mount" "kvv2us" {
 }
 
 resource "vault_kv_secret_v2" "secret" {
-  mount = "company_passwords"
+  mount = "eu/development/"
   name  = "wordpress"
   data_json = jsonencode(
     {
