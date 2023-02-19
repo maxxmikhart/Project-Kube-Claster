@@ -131,7 +131,7 @@ variable "sftpgo-config" {
   type        = map(any)
   description = "Please define prometheus configurations"
   default = {
-    deployment_name          = "sftpgo"
+    deployment_name = "sftpgo"
     chart_version   = "0.12.0"
 
   }
@@ -142,8 +142,20 @@ variable "argo-config" {
   type        = map(any)
   description = "Please define prometheus configurations"
   default = {
-    deployment_name          = "argo"
+    deployment_name = "argo"
     chart_version   = "5.20.5"
 
+  }
+}
+
+# This block is used to setup github action runner
+variable "ghrunner-config" {
+  type        = map(any)
+  description = "Please define prometheus configurations"
+  default = {
+    deployment_name            = "ghrunner"
+    chart_version              = "0.14.0"
+    github_app_id              = "236776"
+    github_app_installation_id = "29078416"
   }
 }
