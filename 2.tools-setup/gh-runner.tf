@@ -35,6 +35,11 @@ EOF
 }
 
 resource "null_resource" "runner" {
+    
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
   provisioner "local-exec" {
     command = "kubectl apply -f runner.yaml"
   }
