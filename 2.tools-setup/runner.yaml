@@ -9,7 +9,7 @@ spec:
     spec:
       repository: farrukh90/symmetrical-fortnight
       image: farrukhsadykov/sharedtools:latest
-
+      imagePullPolicy: Always
 
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
