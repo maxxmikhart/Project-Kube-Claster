@@ -8,8 +8,8 @@ spec:
   template:
     spec:
       repository: farrukh90/symmetrical-fortnight
-      image: farrukhsadykov/sharedtools:latest
-      imagePullPolicy: Always
+      image: farrukhsadykov/runner:latest
+
 
 ---
 apiVersion: actions.summerwind.dev/v1alpha1

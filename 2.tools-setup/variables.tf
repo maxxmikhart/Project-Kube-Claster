@@ -154,7 +154,7 @@ variable "ghrunner-config" {
   description = "Please define prometheus configurations"
   default = {
     deployment_name            = "ghrunner"
-    chart_version              = "0.14.0"
+    chart_version              = "0.22.0"
     github_app_id              = "236776"
     github_app_installation_id = "29078416"
   }
