@@ -22,7 +22,7 @@ spec:
     name: example-runnerdeploy
   scaleDownDelaySecondsAfterScaleOut: 300
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 20
   metrics:
   - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
     repositoryNames:
