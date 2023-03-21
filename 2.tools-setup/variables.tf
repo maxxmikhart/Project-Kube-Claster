@@ -18,9 +18,7 @@ variable "external-dns-config" {
 }
 variable "PROJECT_ID" {}
 variable "email" {}
-variable "google_credentials_json" {
-  default = "service-account.json"
-}
+
 
 # This block is used to setup prometheus
 variable "prometheus-config" {
