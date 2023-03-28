@@ -13,6 +13,9 @@ module "argo-terraform-helm" {
   values_yaml          = <<-EOF
 
 global:
+  deploymentAnnotations: {
+    "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+  }
   revisionHistoryLimit: 3
   image:
     repository: quay.io/argoproj/argocd
