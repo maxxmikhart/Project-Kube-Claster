@@ -13,7 +13,7 @@ resource "kubernetes_resource_quota" "pod" {
   }
   spec {
     hard = {
-      pods = 100
+      pods = 100000
     }
     scopes = ["BestEffort"]
   }
@@ -27,7 +27,7 @@ resource "kubernetes_resource_quota" "secrets" {
   }
   spec {
     hard = {
-      secrets = 100
+      secrets = 100000
     }
   }
 }
@@ -41,7 +41,7 @@ resource "kubernetes_resource_quota" "configmaps" {
   }
   spec {
     hard = {
-      configmaps = 100
+      configmaps = 100000
     }
   }
 }
