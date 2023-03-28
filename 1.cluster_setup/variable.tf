@@ -8,7 +8,7 @@ variable "gke_config" {
     machine_type   = "e2-medium"
     node_count     = 1
     node_pool_name = "my-node-pool"
-    disk_size_gb   = 10
+    disk_size_gb   = 15
     preemptible    = true
     node_version   = "1.23.5-gke.1500" # finds build version automatically based on region. We can change it to 1.21   . In this case it will automatically find minor version
   }
