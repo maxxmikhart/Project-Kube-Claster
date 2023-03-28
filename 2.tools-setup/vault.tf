@@ -13,6 +13,9 @@ module "vault-terraform-helm" {
   repository           = "https://helm.releases.hashicorp.com"
   values_yaml          = <<EOF
 server:  
+  annotations: {
+    "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+  }
   ingress:
     enabled: true
     annotations: 
