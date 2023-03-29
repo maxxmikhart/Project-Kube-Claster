@@ -14,3 +14,7 @@ fix-alertmanager-tls:
 fix-vault-tls:
 		kubectl delete secret vault-tls -n vault && \
 		kubectl delete certificate vault-tls -n vault
+
+fix-sftpgo-tls:
+		kubectl delete secret sftpgo-tls -n sftpgo && \
+		kubectl delete certificate sftpgo-tls -n sftpgo
