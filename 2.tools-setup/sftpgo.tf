@@ -12,7 +12,9 @@ module "sftpgo-terraform-helm" {
   chart_version        = var.sftpgo-config["chart_version"]
   values_yaml          = <<-EOF
 
-
+podAnnotations: {
+      "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+}
 ui:
   ingress:
     enabled: true

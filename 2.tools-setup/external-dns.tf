@@ -50,6 +50,9 @@ module "external-dns-terraform-helm" {
   chart_version        = var.external-dns-config["chart_version"]
   repository           = "https://charts.bitnami.com/bitnami"
   values_yaml          = <<EOF
+commonAnnotations: {
+  "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+}
 provider: google
 google:
   project: "${var.PROJECT_ID}"

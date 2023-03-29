@@ -5,5 +5,10 @@ module "kube-state-metrics-terraform-helm" {
   repository           = "https://prometheus-community.github.io/helm-charts"
   chart                = "kube-state-metrics"
   chart_version        = var.kube-state-metrics-config["chart_version"]
-  values_yaml          = ""
+  values_yaml          = <<EOF
+  
+deploymentAnnotations: {
+  "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+}
+  EOF
 }
