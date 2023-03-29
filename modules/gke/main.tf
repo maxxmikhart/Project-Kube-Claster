@@ -33,13 +33,12 @@ resource "google_container_cluster" "primary" {
   node_version             = data.google_container_engine_versions.us-central1-c.latest_node_version
   initial_node_count       = var.gke_config["node_count"]
   node_config {
-    disk_size_gb = 20
+    disk_size_gb = var.gke_config["disk_size_gb"] 
   }
   node_locations = [
     "${var.gke_config["region"]}-a",
     "${var.gke_config["region"]}-b",
     "${var.gke_config["region"]}-c",
-    "${var.gke_config["region"]}-f"
   ]
   cluster_autoscaling {
     enabled = true

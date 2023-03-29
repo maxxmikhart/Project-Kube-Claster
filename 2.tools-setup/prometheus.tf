@@ -27,6 +27,9 @@ alertmanager:
           - "alertmanager.${var.google_domain_name}"
 
 server:
+  deploymentAnnotations: {
+    "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+  }
   enabled: true
   ingress:
     enabled: true
