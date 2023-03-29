@@ -6,7 +6,9 @@ module "kube-state-metrics-terraform-helm" {
   chart                = "kube-state-metrics"
   chart_version        = var.kube-state-metrics-config["chart_version"]
   values_yaml          = <<EOF
-  
+annotations: {
+   "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+}
 deploymentAnnotations: {
   "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
 }
