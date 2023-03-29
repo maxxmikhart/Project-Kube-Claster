@@ -9,6 +9,9 @@ module "kube-state-metrics-terraform-helm" {
 annotations: {
    "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
 }
+podAnnotations: {
+   "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+}
 deploymentAnnotations: {
   "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
 }
