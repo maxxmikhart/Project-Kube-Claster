@@ -14,3 +14,7 @@ fix-alertmanager-tls:
 fix-vault-tls:
 		kubectl delete secret vault-tls -n vault && \
 		kubectl delete certificate vault-tls -n vault
+
+fix-argo-tls:
+		kubectl delete secret argo-tls -n argo && \
+		kubectl delete certificate argo-tls -n argo

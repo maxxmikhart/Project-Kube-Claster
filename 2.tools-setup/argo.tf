@@ -51,6 +51,9 @@ server:
       kubernetes.io/ingress.class: "nginx"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      acme.cert-manager.io/http01-edit-in-place: "true"
     hosts: 
       - "argocd.${var.google_domain_name}"
     paths:
@@ -60,6 +63,6 @@ server:
       - secretName: argo-tls
         hosts:
           - "argocd.${var.google_domain_name}"
-    https: false
+    https: true
   EOF
 }
