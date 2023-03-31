@@ -61,6 +61,5 @@ rbac:
   create: true
 
 # Below policy is need to keep DNS records clean
-policy: sync
 EOF
 }
