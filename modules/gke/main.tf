@@ -1,3 +1,4 @@
+# Finds available k8s version
 data "google_container_engine_versions" "us-central1-c" {
   provider       = google-beta
   location       = var.gke_config["region"]
@@ -5,7 +6,9 @@ data "google_container_engine_versions" "us-central1-c" {
 }
 
 
+# Enables all services needed for a project
 resource "null_resource" "enable-api" {
+  # Execute always
   triggers = {
     always_run = "${timestamp()}"
   }
@@ -23,7 +26,9 @@ resource "null_resource" "enable-api" {
   }
 }
 
+# Creates a cluster
 resource "google_container_cluster" "primary" {
+  # Explicit dependency on API services
   depends_on = [
     null_resource.enable-api,
   ]
@@ -61,6 +66,7 @@ resource "google_container_cluster" "primary" {
   }
 }
 
+# Get credentials
 resource "null_resource" "set-kubeconfig" {
   depends_on = [
     google_container_cluster.primary,
