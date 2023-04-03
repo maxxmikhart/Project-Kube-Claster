@@ -38,6 +38,17 @@ resource "kubernetes_secret" "external_dns_secret" {
 }
 
 
+resource "kubernetes_secret" "external_dns_secret_dev" {
+  metadata {
+    name      = "letsencrypt-prod-dns01-sa"
+    namespace = "cert-manager"
+  }
+  data = {
+    "credentials.json" = base64decode(google_service_account_key.external-dns.private_key)
+  }
+  type = "generic"
+}
+
 
 module "external-dns-terraform-helm" {
   depends_on = [

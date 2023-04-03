@@ -30,5 +30,7 @@ module "lets-encrypt" {
   deployment_path      = "charts/lets-encrypt"
   values_yaml          = <<EOF
 email: "${var.email}"
+project_id: "${var.PROJECT_ID}"
+google_domain_name: "${var.google_domain_name}"
 EOF
 }
