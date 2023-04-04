@@ -1,11 +1,11 @@
 module "argo-terraform-k8s-namespace" {
   source = "../modules/terraform-k8s-namespace/"
-  name   = "argo"
+  name   = "argocd"
 }
 
 module "argo-terraform-helm" {
   source               = "../modules/terraform-helm/"
-  deployment_name      = "argo"
+  deployment_name      = "argocd"
   deployment_namespace = module.argo-terraform-k8s-namespace.namespace
   chart                = "argo-cd"
   repository           = "https://argoproj.github.io/argo-helm"
@@ -52,7 +52,7 @@ server:
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-      cert-manager.io/cluster-issuer: letsencrypt-prod
+      cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
       acme.cert-manager.io/http01-edit-in-place: "true"
     hosts: 
       - "argocd.${var.google_domain_name}"
@@ -63,6 +63,6 @@ server:
       - secretName: argo-tls
         hosts:
           - "argocd.${var.google_domain_name}"
-    https: true
+    https: false
   EOF
 }

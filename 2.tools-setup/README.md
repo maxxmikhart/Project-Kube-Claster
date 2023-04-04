@@ -97,3 +97,12 @@ source ../scripts/setenv.sh
 terraform apply -var-file ../0.account_setup/configurations.tfvars
 ```
 
+
+### Fix argocd issue
+#### argocd was failing due to certificate issue the following steps fixed it. We had to remove custom resource definition and redeploy with proper naming 
+```
+kubectl get CustomResourceDefinition | grep argo
+kubectl delete CustomResourceDefinition applications.argoproj.io 
+kubectl delete CustomResourceDefinition applicationsets.argoproj.io
+kubectl delete CustomResourceDefinition appprojects.argoproj.io
+ ```
