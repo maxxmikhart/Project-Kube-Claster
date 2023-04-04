@@ -105,4 +105,5 @@ kubectl get CustomResourceDefinition | grep argo
 kubectl delete CustomResourceDefinition applications.argoproj.io 
 kubectl delete CustomResourceDefinition applicationsets.argoproj.io
 kubectl delete CustomResourceDefinition appprojects.argoproj.io
+terraform apply -var-file ../0.account_setup/configurations.tfvars -auto-approve
  ```
