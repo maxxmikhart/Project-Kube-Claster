@@ -46,3 +46,50 @@ server:
           - "prometheus.${var.google_domain_name}"
   EOF
 }
+
+
+
+
+module "prometheus2-terraform-helm" {
+  source               = "../modules/terraform-helm/"
+  deployment_name      = "prometheus2"
+  deployment_namespace = module.prometheus-terraform-k8s-namespace.namespace
+  chart                = "prometheus"
+  repository           = "https://prometheus-community.github.io/helm-charts"
+  chart_version        = var.prometheus-config["chart_version"]
+  values_yaml          = <<-EOF
+alertmanager:
+  ingress:
+    enabled: true
+    annotations: 
+      ingress.kubernetes.io/ssl-redirect: "false"
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      acme.cert-manager.io/http01-edit-in-place: "true"
+    hosts: 
+      - "alertmanager2.${var.google_domain_name}"
+    tls: 
+      - secretName: alertmanager2
+        hosts:
+          - "alertmanager2.${var.google_domain_name}"
+
+server:
+  deploymentAnnotations: {
+    "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
+  }
+  enabled: true
+  ingress:
+    enabled: true
+    annotations:
+      ingress.kubernetes.io/ssl-redirect: "false"
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      acme.cert-manager.io/http01-edit-in-place: "true"
+    hosts: 
+      - "prometheus2.${var.google_domain_name}"
+    tls: 
+      - secretName: prometheus2-server-tls
+        hosts:
+          - "prometheus2.${var.google_domain_name}"
+  EOF
+}
