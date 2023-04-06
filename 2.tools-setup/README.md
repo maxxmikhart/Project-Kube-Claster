@@ -113,6 +113,10 @@ terraform apply -var-file ../0.account_setup/configurations.tfvars -auto-approve
 
 
 # Working with Argocd CLI
+#### Main documentation 
+```
+https://argo-cd.readthedocs.io/en/release-1.8/user-guide/commands/argocd_app_create/
+```
 ## Working with clusters
 #### Login to argocd 
 ```
@@ -124,7 +128,8 @@ argocd cluster list
 ```
 ####  Add new cluster 
 ```
-argocd cluster add
+kubectl config get-contexts -o name
+argocd cluster add NAME
 ```
 ---
 ## Working with apps
