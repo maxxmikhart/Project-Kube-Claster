@@ -61,14 +61,6 @@ variable "vault-config" {
   }
 }
 
-variable "cluster-autoscaler-config" {
-  type        = map(any)
-  description = "Please define prometheus configurations"
-  default = {
-    deployment_name = "cluster-autoscaler"
-    chart_version   = "9.21.0"
-  }
-}
 variable "gke_config" {
   type        = map(any)
   description = "description"
