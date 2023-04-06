@@ -109,3 +109,28 @@ cd 2.tools-setup
 source ../scripts/setenv.sh 
 terraform apply -var-file ../0.account_setup/configurations.tfvars -auto-approve
  ```
+
+
+
+# Working with Argocd CLI
+## Working with clusters
+#### Login to argocd 
+```
+argocd login ARGOCD_URL
+```
+#### List existing clusters
+```
+argocd cluster list 
+```
+####  Add new cluster 
+```
+argocd cluster add
+```
+---
+## Working with apps
+#### List apps
+```
+argocd app -h
+argocd app list
+argocd app get APPNAME
+```
