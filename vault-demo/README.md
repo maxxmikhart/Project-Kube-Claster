@@ -2,6 +2,7 @@
 
 
 # Usage: 
+#### Open vault-demo in integrated terminal
 #### 0. Run 
 ```
 export VAULT_TOKEN="YOUR_TOKEN_HERE"
