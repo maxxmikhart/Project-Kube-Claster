@@ -11,3 +11,5 @@ service-account.json
 envs/dev.tfvars
 .sonar_lock
 report-task.txt
+
+sonar-executor.sh
