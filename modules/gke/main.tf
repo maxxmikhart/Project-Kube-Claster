@@ -22,6 +22,7 @@ resource "null_resource" "enable-api" {
         gcloud services enable file.googleapis.com
         gcloud services enable artifactregistry.googleapis.com
         gcloud services enable cloudresourcemanager.googleapis.com
+        gcloud services enable containeranalysis.googleapis.com
     EOT
   }
 }
