@@ -70,7 +70,7 @@ google:
   serviceAccountSecret: external-dns 
 rbac:
   create: true
-
+policy: sync
 # Below policy is need to keep DNS records clean
 EOF
 }
