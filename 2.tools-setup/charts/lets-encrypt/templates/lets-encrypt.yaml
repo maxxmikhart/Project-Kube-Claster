@@ -49,5 +49,9 @@ spec:
     kind: ClusterIssuer
   commonName: "*.{{ .Values.google_domain_name }}"
   dnsNames:
-  - "*.{{ .Values.google_domain_name }}"
   - "{{ .Values.google_domain_name }}"
+  - "*.{{ .Values.google_domain_name }}"
+  - "*.linux.{{ .Values.google_domain_name }}"
+  - "*.aws.{{ .Values.google_domain_name }}"
+  - "*.ansible.{{ .Values.google_domain_name }}"
+  - "*.kubernetes.{{ .Values.google_domain_name }}"
