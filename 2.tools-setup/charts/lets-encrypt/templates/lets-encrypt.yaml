@@ -50,3 +50,4 @@ spec:
   commonName: "*.{{ .Values.google_domain_name }}"
   dnsNames:
   - "*.{{ .Values.google_domain_name }}"
+  - "{{ .Values.google_domain_name }}"
