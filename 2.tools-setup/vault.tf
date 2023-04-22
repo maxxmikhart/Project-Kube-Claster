@@ -13,6 +13,15 @@ module "vault-terraform-helm" {
   repository           = "https://helm.releases.hashicorp.com"
   values_yaml          = <<EOF
 server:  
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 250m
+    limits:
+      memory: 512Mi
+      cpu: 500m
+
+
   annotations: {
     "cluster-autoscaler.kubernetes.io/safe-to-evict": "true"
   }
