@@ -66,3 +66,14 @@ server:
     https: false
   EOF
 }
+
+module "argo-rollouts-terraform-helm" {
+  source               = "../modules/terraform-helm/"
+  deployment_name      = "argo-rollouts"
+  deployment_namespace = module.argo-terraform-k8s-namespace.namespace
+  chart                = "argo-rollouts"
+  repository           = "https://argoproj.github.io/argo-helm"
+  chart_version        = "2.26.1"
+  values_yaml          = <<-EOF
+  EOF
+}
