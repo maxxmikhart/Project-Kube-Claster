@@ -16,8 +16,8 @@ fix-vault-tls:
 		kubectl delete certificate vault-tls -n vault
 
 fix-argo-tls:
-		kubectl delete secret argo-tls -n argo && \
-		kubectl delete certificate argo-tls -n argo
+		kubectl delete secret argo-tls -n argocd && \
+		kubectl delete certificate argo-tls -n argocd
 
 fix-sftpgo-tls:
 		kubectl delete secret sftpgo-tls -n sftpgo && \
