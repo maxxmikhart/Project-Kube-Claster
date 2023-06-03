@@ -138,6 +138,20 @@ variable "argo-config" {
   }
 }
 
+
+# This block is used to setup ingress controller
+variable "jenkins-config" {
+  type        = map(any)
+  description = "Please define prometheus configurations"
+  default = {
+    deployment_name = "argo"
+    chart_version   = "5.20.5"
+
+  }
+}
+
+
+
 # This block is used to setup github action runner
 variable "ghrunner-config" {
   type        = map(any)

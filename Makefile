@@ -22,3 +22,7 @@ fix-argo-tls:
 fix-sftpgo-tls:
 		kubectl delete secret sftpgo-tls -n sftpgo && \
 		kubectl delete certificate sftpgo-tls -n sftpgo
+
+fix-jenkins-tls:
+		kubectl delete secret jenkins-tls -n jenkins && \
+		kubectl delete certificate jenkins-tls -n jenkins
