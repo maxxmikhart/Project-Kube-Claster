@@ -144,9 +144,8 @@ variable "jenkins-config" {
   type        = map(any)
   description = "Please define prometheus configurations"
   default = {
-    deployment_name = "argo"
-    chart_version   = "5.20.5"
-
+    deployment_name = "jenkins"
+    chart_version   = "4.3.22"
   }
 }
 
