@@ -29,3 +29,4 @@ spec:
 
 # Open in integrated Terminal
 # k apply -f deployment.yaml
+# k delete -f deployment.yaml
