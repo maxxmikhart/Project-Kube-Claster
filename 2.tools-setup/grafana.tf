@@ -11,6 +11,13 @@ module "grafana-terraform-helm" {
   chart_version        = var.grafana-config["chart_version"]
   repository           = "https://grafana.github.io/helm-charts"
   values_yaml          = <<EOF
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 250m
+  limits:
+    memory: 512Mi
+    cpu: 500m
 dashboardProviders: 
  dashboardproviders.yaml:
    apiVersion: 1
